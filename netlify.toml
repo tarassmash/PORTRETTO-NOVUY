@@ -1,0 +1,14 @@
+# Portretto — настройки деплоя Netlify
+[build]
+  publish = "public"
+  command = "echo 'no build step'"
+
+[functions]
+  node_bundler = "esbuild"
+
+# Сайт отдаётся с защитными заголовками
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
