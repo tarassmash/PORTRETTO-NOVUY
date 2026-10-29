@@ -109,19 +109,6 @@ h2.title { font: 400 clamp(30px, 4.4vw, 48px)/1.08 var(--f-display); margin: 8px
 .collage .c5 { grid-column: 3; grid-row: 4 / 7; }
 .collage .c6 { grid-column: 2; grid-row: 6 / 7; background: transparent; display: grid; place-items: center; font: 500 11px var(--f-mono); color: var(--muted); letter-spacing: .06em; text-transform: uppercase; }
 @media (max-width: 900px) { .hero { grid-template-columns: minmax(0, 1fr); gap: 30px; padding-block: 20px 10px; } .collage { max-width: 520px; } }
-/* Главный пример «до/после» в первом экране: двигается сам, пальцем не тянется (из TikTok свайп закрывает сайт) */
-.hero-vis { min-width: 0; }
-.hero-vis [hidden] { display: none !important; }
-.hba { --pos: 50%; position: relative; aspect-ratio: 4 / 5; width: 100%; max-width: 520px; margin-inline: auto; border-radius: 16px; overflow: hidden; background: var(--soft); user-select: none; -webkit-user-select: none; -webkit-touch-callout: none; touch-action: pan-y; box-shadow: 0 18px 50px rgba(0,0,0,.18); }
-.hba img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; pointer-events: none; -webkit-user-drag: none; }
-.hba .before { clip-path: inset(0 calc(100% - var(--pos)) 0 0); }
-.hba .line { position: absolute; top: 0; bottom: 0; left: var(--pos); width: 2px; background: #f0c150; transform: translateX(-1px); pointer-events: none; box-shadow: 0 0 10px rgba(0,0,0,.25); }
-.hba .t { position: absolute; top: 12px; font: 500 11px var(--f-mono); letter-spacing: .08em; text-transform: uppercase; background: rgba(10,14,18,.62); color: #fff; padding: 4px 9px; border-radius: 4px; pointer-events: none; }
-.hba .t.l { left: 12px; } .hba .t.r { right: 12px; }
-@media (max-width: 900px) {
-  .hero-vis { order: -1; }
-  .hba { width: min(100%, calc(56vh * .8)); width: min(100%, calc(56svh * .8)); }
-}
 
 /* How */
 .how { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
@@ -339,10 +326,7 @@ footer { padding-block: 40px 44px; color: var(--muted); font-size: 13.5px; displ
       </div>
       <div class="facts"><span data-i18n="fact.1">Сходство лица в приоритете</span><span data-i18n="fact.2">Готово за 30–60 секунд</span><span data-i18n="fact.3">Высокое разрешение</span></div>
     </div>
-    <div class="hero-vis">
-      <div class="hba" id="heroBa" role="img" hidden><img class="after" alt="" decoding="async" fetchpriority="high"><img class="before" alt="" decoding="async" fetchpriority="high"><div class="line"></div><span class="t l"></span><span class="t r"></span></div>
-      <div class="collage" id="collage" aria-hidden="true"></div>
-    </div>
+    <div class="collage" id="collage" aria-hidden="true"></div>
   </section>
 
   <section class="sec" id="how">
@@ -355,7 +339,7 @@ footer { padding-block: 40px 44px; color: var(--muted); font-size: 13.5px; displ
   </section>
 
   <section class="sec" id="examples" hidden>
-    <div class="sec-head"><div class="eyebrow" data-i18n="ba.eyebrow">До и после</div><h2 class="title" data-i18n="ba.title">Обычное селфи → студийный портрет</h2><p class="lead" data-i18n="ba.lead">Слева фото, которое загрузили, справа готовый портрет. Разделитель двигается сам.</p></div>
+    <div class="sec-head"><div class="eyebrow" data-i18n="ba.eyebrow">До и после</div><h2 class="title" data-i18n="ba.title">Обычное селфи → студийный портрет</h2><p class="lead" data-i18n="ba.lead">Слева фото, которое загрузили, справа готовый портрет. Разделитель двигается сам, его можно потянуть и вручную.</p></div>
     <div class="ba-grid" id="baGrid"></div>
   </section>
 
@@ -528,7 +512,7 @@ footer { padding-block: 40px 44px; color: var(--muted); font-size: 13.5px; displ
       "bal": "Баланс: {n}", "copied": "Скопировано",
       "err.photo": "Сначала загрузите фото.", "err.style": "Выберите образ.", "err.net": "Нет связи с сервером. Проверьте интернет.", "err.max": "Достаточно трёх фото.", "err.open": "Не удалось открыть фото. Сохраните его как JPG и попробуйте снова.", "err.long": "Слишком долго. Попробуйте ещё раз.",
       "sample": "образ", "collage.cap": "Примеры образов",
-      "nav.ex": "До и после", "nav.blog": "Блог", "blog.eyebrow": "Блог", "blog.title": "Советы о портретах и фото", "blog.all": "Все статьи", "ba.eyebrow": "До и после", "ba.title": "Обычное селфи → студийный портрет", "ba.lead": "Слева фото, которое загрузили, справа готовый портрет. Разделитель двигается сам.",
+      "nav.ex": "До и после", "nav.blog": "Блог", "blog.eyebrow": "Блог", "blog.title": "Советы о портретах и фото", "blog.all": "Все статьи", "ba.eyebrow": "До и после", "ba.title": "Обычное селфи → студийный портрет", "ba.lead": "Слева фото, которое загрузили, справа готовый портрет. Разделитель двигается сам, его можно потянуть и вручную.",
       "ba.ai": "вымышленный человек", "ba.zoom": "Крупнее", "ba.slider": "Сравнение до и после",
     },
     en: {
@@ -566,7 +550,7 @@ footer { padding-block: 40px 44px; color: var(--muted); font-size: 13.5px; displ
       "bal": "Balance: {n}", "copied": "Copied",
       "err.photo": "Upload a photo first.", "err.style": "Pick a look.", "err.net": "Can't reach the server. Check your connection.", "err.max": "Three photos are enough.", "err.open": "Couldn't open this photo. Save it as JPG and try again.", "err.long": "This is taking too long. Please try again.",
       "sample": "look", "collage.cap": "Sample looks",
-      "nav.ex": "Before & after", "nav.blog": "Blog", "blog.eyebrow": "Blog", "blog.title": "Portrait and photo tips", "blog.all": "All articles", "ba.eyebrow": "Before & after", "ba.title": "Ordinary selfie → studio portrait", "ba.lead": "On the left, the uploaded photo; on the right, the finished portrait. The divider moves on its own.",
+      "nav.ex": "Before & after", "nav.blog": "Blog", "blog.eyebrow": "Blog", "blog.title": "Portrait and photo tips", "blog.all": "All articles", "ba.eyebrow": "Before & after", "ba.title": "Ordinary selfie → studio portrait", "ba.lead": "On the left, the uploaded photo; on the right, the finished portrait. The divider moves on its own, and you can drag it too.",
       "ba.ai": "fictional person", "ba.zoom": "Enlarge", "ba.slider": "Before and after comparison",
     },
   };
@@ -623,7 +607,7 @@ footer { padding-block: 40px 44px; color: var(--muted); font-size: 13.5px; displ
     ["navBlog", "footBlog", "allPosts"].forEach(id => { const a = $(id); if (a) a.href = L === "en" ? "/en/blog" : "/blog"; });
     $("faqList").innerHTML = "";
     FAQ[L].forEach(([q, a]) => { const d = document.createElement("details"); d.innerHTML = "<summary></summary><p></p>"; d.querySelector("summary").textContent = q; d.querySelector("p").textContent = a; $("faqList").appendChild(d); });
-    if (cfg) { renderLooks(); renderFormats(); renderPrices(); renderCollage(); renderHeroBa(); renderDesc(); renderExamples(); renderLatest(); }
+    if (cfg) { renderLooks(); renderFormats(); renderPrices(); renderCollage(); renderDesc(); renderExamples(); renderLatest(); }
     renderBalance(); updateNote(); setToggleLabel();
   }
   document.querySelectorAll(".lang button").forEach(b => b.onclick = () => { L = b.dataset.lang; store.set("pt_lang", L); applyLang(); });
@@ -666,35 +650,6 @@ footer { padding-block: 40px 44px; color: var(--muted); font-size: 13.5px; displ
   }
   let exStops = [];
   const RM = matchMedia("(prefers-reduced-motion: reduce)").matches;
-  let heroStop = null;
-  // Главный пример вверху: разделитель ездит сам по кругу, без пальца
-  function renderHeroBa() {
-    heroStop?.(); heroStop = null;
-    const ex = (cfg.examples || [])[0], box = $("heroBa");
-    box.hidden = !ex; $("collage").hidden = !!ex;
-    if (!ex) return;
-    const [after, before] = box.querySelectorAll("img");
-    if (after.getAttribute("src") !== ex.after) after.src = ex.after;
-    if (before.getAttribute("src") !== ex.before) before.src = ex.before;
-    box.setAttribute("aria-label", t("ba.slider"));
-    box.querySelector(".t.l").textContent = t("lb.before"); box.querySelector(".t.r").textContent = t("lb.after");
-    let p = 50, dir = 0, anim = 0, timer = 0, visible = true;
-    const set = v => { p = v; box.style.setProperty("--pos", p + "%"); };
-    const tween = to => {
-      cancelAnimationFrame(anim);
-      if (RM) return set(to);
-      const from = p, t0 = performance.now(), ms = 1100;
-      const step = now => { const k = Math.min(1, (now - t0) / ms), e = k < .5 ? 2 * k * k : 1 - Math.pow(-2 * k + 2, 2) / 2; set(from + (to - from) * e); if (k < 1) anim = requestAnimationFrame(step); };
-      anim = requestAnimationFrame(step);
-    };
-    const TARGETS = [8, 92]; // сначала «после», потом «до»
-    const tick = () => { if (visible && !document.hidden) { tween(TARGETS[dir]); dir = 1 - dir; } };
-    set(50);
-    const first = setTimeout(() => { tick(); timer = setInterval(tick, 2800); }, 600);
-    const io = "IntersectionObserver" in window ? new IntersectionObserver(es => { visible = es[es.length - 1].isIntersecting; }) : null;
-    if (io) io.observe(box);
-    heroStop = () => { clearTimeout(first); clearInterval(timer); cancelAnimationFrame(anim); io?.disconnect(); };
-  }
   function renderExamples() {
     exStops.forEach(f => f()); exStops = [];
     const list = cfg.examples || [];
@@ -727,12 +682,12 @@ footer { padding-block: 40px 44px; color: var(--muted); font-size: 13.5px; displ
       const first = setTimeout(() => { tick(); timer = setInterval(tick, 3000); }, 700 + idx * 450);
       // Пока человек сам двигает или держит мышь на фото — авто-движение на паузе
       const stopAnim = () => cancelAnimationFrame(anim);
-      m.addEventListener("pointerdown", e => { if (e.pointerType !== "mouse") return; drag = true; stopAnim(); fromX(e.clientX); });
-      m.addEventListener("pointermove", e => { if (e.pointerType === "mouse") { stopAnim(); fromX(e.clientX); } });
+      m.addEventListener("pointerdown", e => { drag = true; stopAnim(); fromX(e.clientX); });
+      m.addEventListener("pointermove", e => { if (drag || e.pointerType === "mouse") { stopAnim(); fromX(e.clientX); } });
       ["pointerup", "pointercancel"].forEach(ev => m.addEventListener(ev, () => drag = false));
       m.addEventListener("pointerenter", e => { if (e.pointerType === "mouse") { hold = true; stopAnim(); } });
       m.addEventListener("pointerleave", e => { drag = false; if (e.pointerType === "mouse") hold = false; });
-      m.addEventListener("focus", () => { let kb = false; try { kb = m.matches(":focus-visible"); } catch {} if (kb) { hold = true; stopAnim(); } });
+      m.addEventListener("focus", () => { hold = true; stopAnim(); });
       m.addEventListener("blur", () => { hold = false; });
       m.addEventListener("keydown", e => { if (e.key === "ArrowLeft") { set(p - 5); e.preventDefault(); } if (e.key === "ArrowRight") { set(p + 5); e.preventDefault(); } });
       box.appendChild(d);
